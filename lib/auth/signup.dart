@@ -1,17 +1,19 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:bodae/Constants/colors.dart';
 import 'package:bodae/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  //AuthController authController = Get.put(AuthController());
+
   double? _devWidth, _devHeight;
 
   TextEditingController username = TextEditingController();
@@ -23,44 +25,44 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     _devHeight = MediaQuery.of(context).size.height;
     _devWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor.blue,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(
-              Icons.arrow_back,
-              color: AppColor.white,
-              size: 18,
-            ),
-            Text(
-              "Sign In",
-              style: TextStyle(
-                  color: AppColor.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-            Container(
-              child: Image.asset(
-                "images/bodanative.png",
-                fit: BoxFit.fill,
+          backgroundColor: AppColor.blue,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(
+                Icons.arrow_back,
+                color: AppColor.white,
+                size: 15,
               ),
-              height: _devHeight! * 0.05,
-              width: _devWidth! * 0.15,
-            )
-          ],
-        ),
-      ),
+              Text(
+                "Sign Up",
+                style: TextStyle(
+                  color: AppColor.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              Container(
+                child: Image.asset("images/bodanative.png",
+                fit: BoxFit.fill,),
+                height: _devHeight! * 0.045,
+                width: _devWidth! * 0.15,
+              )
+            ],
+          ),
+          ),
       body: Center(
         child: Form(
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
               child: Text(
-                "Sign In to Your Account",
+                "SignUp to Your Account",
                 style: TextStyle(
                     fontSize: 18,
                     color: Colors.black,
@@ -68,7 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             SizedBox(
-              height: _devHeight! * 0.02,
+              height: _devHeight!* 0.02,
             ),
             CustomTextInput(
               keyboardType: TextInputType.emailAddress,
@@ -92,34 +94,19 @@ class _SignInScreenState extends State<SignInScreen> {
               },
               hint: "wanj@_Pass",
             ),
+
             SizedBox(
-              height: _devHeight! * 0.025,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 240),
-              child: Text(
-                "Forgot Password",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: _devHeight! * 0.05,
+              height: _devHeight!*0.1,
             ),
             Center(
               child: Container(
                 child: Center(
-                  child: Text(
-                    "Sign In",
-                    style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  child: Text("Sign Up",
+                  style: TextStyle(
+                    color: AppColor.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),),
                 ),
                 height: _devHeight! * 0.06,
                 width: _devWidth! * 0.9,

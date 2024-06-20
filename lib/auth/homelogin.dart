@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
-import 'package:bodae/auth/loginscreen.dart';
+import 'package:bodae/auth/signup.dart';
 import 'package:bodae/auth/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:bodae/Constants/colors.dart';
@@ -57,7 +57,7 @@ class _HomeLoginState extends State<HomeLogin> {
         onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>  LoginScreen()),
+              MaterialPageRoute(builder: (context) =>  SignUpScreen()),
             );
           },
         child: Container(
