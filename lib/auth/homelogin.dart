@@ -52,12 +52,21 @@ class _HomeLoginState extends State<HomeLogin> {
   }
 
   Widget TheForms() {
-    return Column(children: [
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+      Text("Already Have An Account?",
+      style: TextStyle(
+        color: Colors.blue,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),),
+      SizedBox(height: 5,),
       GestureDetector(
         onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>  SignUpScreen()),
+              MaterialPageRoute(builder: (context) =>  SignInScreen()),
             );
           },
         child: Container(
@@ -66,7 +75,7 @@ class _HomeLoginState extends State<HomeLogin> {
             decoration: BoxDecoration(
               color: AppColor.blue,
               shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(8.0),
             ),
             child: Center(
               child: Text(
@@ -82,11 +91,18 @@ class _HomeLoginState extends State<HomeLogin> {
       SizedBox(
         height: _devHeight! * 0.025,
       ),
+      Text("Don't Have An Account? Lets Create",
+      style: TextStyle(
+        color: Colors.blue,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),),
+      SizedBox(height: 5,),
       GestureDetector(
         onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>  SignInScreen()),
+              MaterialPageRoute(builder: (context) =>  SignUpScreen()),
             );
           },
         child: Container(
@@ -95,7 +111,7 @@ class _HomeLoginState extends State<HomeLogin> {
             decoration: BoxDecoration(
                 color: AppColor.white,
                 shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(15.0),
+                borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(color: AppColor.blue)),
             child: Center(
               child: Text(

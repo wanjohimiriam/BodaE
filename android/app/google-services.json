@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "211718621497",
+    "firebase_url": "https://bod-er-default-rtdb.firebaseio.com",
+    "project_id": "bod-er",
+    "storage_bucket": "bod-er.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211718621497:android:6d8eb6533b0249588bc0e8",
+        "android_client_info": {
+          "package_name": "com.example.bodae"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5-Gv5Md0PiPjrJgE606yYeGaNeJheb4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
