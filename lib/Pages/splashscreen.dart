@@ -8,7 +8,7 @@ import 'package:bodae/auth/homelogin.dart';
 import 'package:flutter/material.dart';
 
 class LoadingScreen extends StatefulWidget {
-  LoadingScreen({super.key});
+  const LoadingScreen({super.key});
 
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
@@ -16,9 +16,7 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
   double? _devWidth, _devHeight;
-  double _progress = 0.0;
-  bool _dialogShown = false;
-  Timer? _timer;
+  double progress = 0.0;
 
   @override
   void initState() {
@@ -27,18 +25,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void _startProgress() {
-    _timer = Timer.periodic(Duration(milliseconds: 20), (timer) {
-      if (!mounted) {
-        timer.cancel();
-        return;
+    Timer.periodic(const Duration(milliseconds: 500), (timer){
+      if(progress >= 1){
+        _navigateToLoginPage();
+      } else {
+        progress += .02;
       }
-      setState(() {
-        _progress += 0.01;
-        if (_progress >= 0.7) {
-          _navigateToLoginPage();
-          timer.cancel();
-        }
-      });
     });
   }
   void _navigateToLoginPage() {
@@ -67,22 +59,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
           SizedBox(
             height: _devHeight!*0.09,
           ),
-          // Container(
-          //   height: _devHeight!*0.002,
-          //   width: _devWidth!*0.17,
-          //   color: AppColor.blue,
-          // )
-           Padding(
-              padding: const EdgeInsets.only(left: 50, right: 50),
-              child: LinearProgressIndicator(
-                value: _progress,
-                minHeight: 5,
-                color: AppColor.white,
-                borderRadius: BorderRadius.circular(10),
-                backgroundColor: AppColor.blue,
-                semanticsLabel: 'Linear progress indicator',
-              ),
+          Padding(
+            padding: const EdgeInsets.only(left: 50, right: 50),
+            child: LinearProgressIndicator(
+              value: progress,
+              minHeight: 5,
+              color: AppColor.white,
+              borderRadius: BorderRadius.circular(10),
+              backgroundColor: AppColor.blue,
+              semanticsLabel: 'Linear progress indicator',
             ),
+          ),
         ],
       )),
     );

@@ -3,7 +3,7 @@
 import 'dart:io';
 
 import 'package:bodae/Constants/colors.dart';
-import 'package:bodae/Pages/HomeScreen.dart';
+import 'package:bodae/Pages/home_screen.dart';
 import 'package:bodae/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';

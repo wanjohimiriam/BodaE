@@ -1,14 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:ffi';
-
 import 'package:bodae/Constants/colors.dart';
 import 'package:bodae/widgets/drawer.dart';
 import 'package:bodae/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();

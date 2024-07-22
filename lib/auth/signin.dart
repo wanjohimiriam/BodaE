@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'package:bodae/Constants/colors.dart';
-import 'package:bodae/Pages/HomeScreen.dart';
+import 'package:bodae/Pages/home_screen.dart';
 import 'package:bodae/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 
