@@ -19,7 +19,7 @@ class MapScreen extends StatelessWidget {
             opacity: localMapController.loading.value ? .55 : 1,
             child: GoogleMap(
               onMapCreated: (controller){
-                if(!localMapController.controller.isCompleted){
+                if(!localMapController.controller.isCompleted){  w ms 
                   localMapController.controller.complete(controller);
                 }
               },
