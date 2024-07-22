@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_import, sized_box_for_whitespace
 
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:bodae/Constants/colors.dart';
 import 'package:bodae/auth/homelogin.dart';

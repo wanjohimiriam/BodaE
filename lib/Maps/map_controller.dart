@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -39,39 +38,39 @@ class LocalMapController extends GetxController{
     );
   }
 
-  Future<void> getPolylinePoints(double latitude, double longitude, TravelMode travelMode) async {
-    loading.value = true;
-    try{
-      PolylinePoints polylinePoints = PolylinePoints();
-      PolylineResult polylineResult = await polylinePoints.getRouteBetweenCoordinates(
-        request: PolylineRequest(
-          origin: PointLatLng(
-            currentLocation.value.latitude,
-            currentLocation.value.longitude,
-          ), 
-          destination: PointLatLng(
-            latitude,
-            longitude,
-          ),
-          mode: travelMode,
-        ),
-        googleApiKey: "",
-      );
-      allPolylinePoints.clear();
+  // Future<void> getPolylinePoints(double latitude, double longitude, TravelMode travelMode) async {
+  //   loading.value = true;
+  //   try{
+  //     PolylinePoints polylinePoints = PolylinePoints();
+  //     PolylineResult polylineResult = await polylinePoints.getRouteBetweenCoordinates(
+  //       request: PolylineRequest(
+  //         origin: PointLatLng(
+  //           currentLocation.value.latitude,
+  //           currentLocation.value.longitude,
+  //         ), 
+  //         destination: PointLatLng(
+  //           latitude,
+  //           longitude,
+  //         ),
+  //         mode: travelMode,
+  //       ),
+  //       googleApiKey: "",
+  //     );
+  //     allPolylinePoints.clear();
 
-      for (var point in polylineResult.points) {
-        allPolylinePoints.add(
-          LatLng(point.latitude, point.longitude),
-        );
-      }
-      loading.value = false;
-    } catch(e) {
-      Get.snackbar(
-        "Error!!!",
-        e.toString(),
-      );
-    }
-  }
+  //     for (var point in polylineResult.points) {
+  //       allPolylinePoints.add(
+  //         LatLng(point.latitude, point.longitude),
+  //       );
+  //     }
+  //     loading.value = false;
+  //   } catch(e) {
+  //     Get.snackbar(
+  //       "Error!!!",
+  //       e.toString(),
+  //     );
+  //   }
+  // }
 
   @override
   void onInit() {
