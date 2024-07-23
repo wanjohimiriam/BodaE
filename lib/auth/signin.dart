@@ -28,14 +28,13 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.blue,
+        leading: Icon(
+          Icons.arrow_back_ios_sharp,
+          color: Colors.white,
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Icon(
-            //   Icons.arrow_back,
-            //   color: AppColor.white,
-            //   size: 18,
-            // ),
             Text(
               "SIGN IN",
               style: TextStyle(
@@ -80,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 CustomTextInput(
                   label: "Enter password",
-                 fontSize: 16,
+                //  fontSize: 16,
                   validator: (val) {
                     return val!.isEmpty ? "enter_password_error" : null;
                   },

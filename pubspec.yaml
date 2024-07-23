@@ -47,6 +47,7 @@ dependencies:
   get: ^4.6.6
   location: ^6.0.2
   flutter_paypal_checkout: ^1.0.1
+  mpesa_flutter_plugin: ^1.6.1
 
 
 dev_dependencies:

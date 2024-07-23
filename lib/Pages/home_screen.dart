@@ -49,15 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     List<Widget> bodyDisplay = <Widget>[
-      HomeTabDisplay(
-        searchController: searchController,
-        searchInput: searchInput,
-        filter: filter,
-        locations: locations,
-        sellerMode: sellerMode,
-        loading: loading,
-        loadValue: loadValue,
-      ),
+      // HomeTabDisplay(
+      //   searchController: searchController,
+      //   searchInput: searchInput,
+      //   filter: filter,
+      //   locations: locations,
+      //   sellerMode: sellerMode,
+      //   loading: loading,
+      //   loadValue: loadValue,
+      // ),
       // UsersPage(),
       // OrdersTabDisplay(),
       // SavedTabDisplay(),
