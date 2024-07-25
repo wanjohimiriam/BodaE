@@ -56,7 +56,7 @@ class PaymentController extends GetxController {
         businessShortCode: "174379",
         transactionType: TransactionType.CustomerPayBillOnline, 
         amount: 2.0,
-        partyA: "254740025607",
+        partyA: "254758677690",
         partyB: "174379",
         callBackURL: Uri(
           scheme: "https",
@@ -64,7 +64,7 @@ class PaymentController extends GetxController {
           host: "us-central1-negel-da5d1.cloudfunctions.net",
         ),
         accountReference: "Bodae",
-        phoneNumber: "254740025607",
+        phoneNumber: "254758677690",
         baseUri: Uri(
           scheme: "https",
           host: "sandbox.safaricom.co.ke"

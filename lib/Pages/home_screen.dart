@@ -1,12 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ffi';
+
 import 'package:bodae/Constants/colors.dart';
 import 'package:bodae/widgets/drawer.dart';
+import 'package:bodae/widgets/search.dart';
 import 'package:bodae/widgets/textfields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -49,15 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     List<Widget> bodyDisplay = <Widget>[
-      // HomeTabDisplay(
-      //   searchController: searchController,
-      //   searchInput: searchInput,
-      //   filter: filter,
-      //   locations: locations,
-      //   sellerMode: sellerMode,
-      //   loading: loading,
-      //   loadValue: loadValue,
-      // ),
+      HomeTabDisplay(
+        searchController: searchController,
+        searchInput: searchInput,
+        filter: filter,
+        locations: locations,
+        sellerMode: sellerMode,
+        loading: loading,
+        loadValue: loadValue,
+      ),
       // UsersPage(),
       // OrdersTabDisplay(),
       // SavedTabDisplay(),
@@ -91,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mini: false,
           backgroundColor: AppColor.blue,
           onPressed: () {
-            Navigator.pushNamed(context, "/upload");
+            //Navigator.pushNamed(context, "/upload");
           },
           child: const Icon(
             Icons.add,
@@ -135,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: currentTab == index ? 14 : 12,
                                   color: currentTab == index
                                       ? AppColor.blue
-                                      : Colors.grey.shade400,
+                                      : Colors.grey.shade600,
                                 ),
                       )
                     ],
@@ -151,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class HomeTabDisplay extends StatelessWidget {
-  const HomeTabDisplay({
+  HomeTabDisplay({
     super.key,
     required this.searchController,
     required this.searchInput,
@@ -186,20 +190,47 @@ class HomeTabDisplay extends StatelessWidget {
                   height: 100,
                   width: MediaQuery.of(context).size.width,
                   color: AppColor.blue,
-                  child: Center(
+                  child: Expanded(
+                    child: Center(
                       child: Row(
-                    children: [
-                      CustomTextInput(
-                       border: BorderSide(
-                        color: AppColor.white, width: 2), 
-                        prefixIcon: Icon(
-                          Icons.search,
-                          size: 20,
-                          color: AppColor.white,),
-                        label: "Search")
-                      
-                    ],
-                  )),
+                      children: [
+                        CustomTextInput(
+                          labelcolor: AppColor.white,
+                          hint: "search",
+                          height: MediaQuery.of(context).size.height * 0.055,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          border2: BorderSide(
+                            color: AppColor.white,
+                            width: 1,
+                          ),
+                          obsecureText:
+                              false, // Set to false to show the text and border
+                          controller: searchController,
+                          suffixIcon: Icon(
+                            Icons.search,
+                            size: 20,
+                            color: AppColor.white,
+                          ),
+                          label: "Search",
+                        ),
+                        CustomTextInput(
+                          hint: "filter",
+                          label: "filter",
+                          height: MediaQuery.of(context).size.height * 0.055,
+                          width: MediaQuery.of(context).size.width * 0.23,
+                          border2: BorderSide(
+                            color: AppColor.white,
+                            width: 1,
+                          ),
+                          obsecureText:
+                              false, // Set to false to show the text and border
+                          controller: searchController,
+                          labelcolor: AppColor.white,
+                        )
+                      ],
+                    ),
+                    ),
+                  ),
                 ),
               ])
         ]));

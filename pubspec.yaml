@@ -87,6 +87,8 @@ flutter:
     - images/bikebodar.png
     - images/bodanative.png
     - images/profile.png
+    - images/mpesa.png
+    - images/airtel.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

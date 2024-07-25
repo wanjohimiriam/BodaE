@@ -10,12 +10,12 @@ List<Map<String, dynamic>> drawerItems = [
     {
       "label": "change_password",
       "icon": CupertinoIcons.eye,
-      "navigate": "/change_password",
+      "navigate": "/changePassword",
     },
     {
       "label": "change_payment",
       "icon": CupertinoIcons.creditcard,
-      "navigate": "/changepayment",
+      "navigate": "/payment",
     },
     {
       "label": "my_post",
@@ -25,21 +25,40 @@ List<Map<String, dynamic>> drawerItems = [
     {
       "label": "language",
       "icon": CupertinoIcons.globe,
-      "navigate": "/change_language",
+      "navigate": "/langpop",
     },
     {
       "label": "contact_us",
       "icon": CupertinoIcons.phone,
       "navigate": "/frontContact",
     },
-    {
-      "label": "privacy",
-      "icon": CupertinoIcons.lock,
-      "navigate": "/privacy_and_policy",
-    },
+  
     {
       "label": "log_out",
       "icon": Icons.logout,
-      "navigate": "",
+      "navigate": "/homelogin",
+    },
+  ];
+
+  List<Map<String, dynamic>> bottomNavItems = [
+    {
+      "icon": CupertinoIcons.home,
+      "label": "home",
+    },
+    {
+      "icon": CupertinoIcons.mail,
+      "label": "messages",
+    },
+    {
+      "icon": CupertinoIcons.shopping_cart,
+      "label": "orders",
+    },
+    {
+      "icon": CupertinoIcons.bookmark,
+      "label": "saved",
+    },
+    {
+      "icon": Icons.verified_outlined,
+      "label": "my_plans",
     },
   ];

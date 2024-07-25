@@ -17,7 +17,7 @@ final PaymentController paymentController = Get.put(PaymentController());
             children: [
               ElevatedButton(
                 onPressed: () {
-                  paymentController.paypalCheckout();
+                 paymentController.paypalCheckout();
                },
                 child: Text(
                   "Paypal",
@@ -31,7 +31,7 @@ final PaymentController paymentController = Get.put(PaymentController());
               ),
               ElevatedButton(
                 onPressed: () {
-                  paymentController.mpesaCheckout();
+                 // paymentController.mpesaCheckout();
                },
                 child: Text(
                   "M-pesa",

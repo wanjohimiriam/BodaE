@@ -4,6 +4,7 @@ import 'package:bodae/auth/signup.dart';
 import 'package:bodae/auth/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:bodae/Constants/colors.dart';
+import 'package:get/get.dart';
 
 class HomeLogin extends StatefulWidget {
   const HomeLogin({super.key});
@@ -55,7 +56,7 @@ class _HomeLoginState extends State<HomeLogin> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-      Text("Already Have An Account?",
+      Text("looking for riding/ delivery services",
       style: TextStyle(
         color: Colors.blue,
         fontSize: 14,
@@ -64,10 +65,7 @@ class _HomeLoginState extends State<HomeLogin> {
       SizedBox(height: 5,),
       GestureDetector(
         onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>  SignInScreen()),
-            );
+            Get.toNamed("signin");
           },
         child: Container(
             width: _devWidth! * 0.75,
@@ -79,7 +77,7 @@ class _HomeLoginState extends State<HomeLogin> {
             ),
             child: Center(
               child: Text(
-                "Login",
+                "Book Ride",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -91,7 +89,7 @@ class _HomeLoginState extends State<HomeLogin> {
       SizedBox(
         height: _devHeight! * 0.025,
       ),
-      Text("Don't Have An Account? Lets Create",
+      Text("Offering a ride or delivery services",
       style: TextStyle(
         color: Colors.blue,
         fontSize: 14,
@@ -100,10 +98,7 @@ class _HomeLoginState extends State<HomeLogin> {
       SizedBox(height: 5,),
       GestureDetector(
         onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>  SignUpScreen()),
-            );
+            Get.toNamed("/signup");
           },
         child: Container(
             width: _devWidth! * 0.75,
@@ -115,7 +110,7 @@ class _HomeLoginState extends State<HomeLogin> {
                 border: Border.all(color: AppColor.blue)),
             child: Center(
               child: Text(
-                "SignIn",
+                "Rider",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

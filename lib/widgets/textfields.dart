@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 
 class CustomTextInput extends StatelessWidget {
   String? hint;
+  final Color? labelcolor;
+  final double? height;
+  final double? width;
   final String label;
   String? Function(String?)? validator;
   final TextEditingController? controller;
@@ -12,6 +15,7 @@ class CustomTextInput extends StatelessWidget {
   int? maxLines;
   EdgeInsetsGeometry? padding;
   final BorderSide? border;
+  final BorderSide? border2;
   List<String>? autofillHints;
   Widget? suffixIcon;
   TextInputType? keyboardType;
@@ -33,7 +37,8 @@ class CustomTextInput extends StatelessWidget {
     this.keyboardType,
     this.prefixIcon,
     this.outterPadding,
-    this.fontSize, this.border,
+    this.fontSize,
+    this.border, this.border2, this.height, this.width, this.labelcolor, 
   });
 
   @override
@@ -41,47 +46,56 @@ class CustomTextInput extends StatelessWidget {
     return Padding(
       padding: outterPadding ??
           EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.05),
-      child: TextFormField(
-        autofillHints: autofillHints,
-        validator: validator,
-        // controller: controller,
-        maxLines: maxLines ?? 1,
-        obscureText: obsecureText ?? false,
-        style: Theme.of(context).textTheme.displaySmall!.copyWith(
-              color: AppColor.blue,
-            ),
-        keyboardType: keyboardType ?? TextInputType.text,
-        decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
+              horizontal: MediaQuery.of(context).size.width * 0.08,
+              vertical: MediaQuery.of(context).size.height * 0, ),
+      child: Center(
+        child: Container(
+          height:height,
+          width: width,
+          child: TextFormField(
+            autofillHints: autofillHints,
+            validator: validator,
+            controller: controller,
+            maxLines: maxLines ?? 1,
+            obscureText: obsecureText ?? false,
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: AppColor.blue,
-                  // color: primaryColor.withOpacity(.9),
-                  width: 2),
-              borderRadius: BorderRadius.circular(6)),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColor.blue,
-              width: 2,
+                  fontSize: 14
+                ),
+            keyboardType: keyboardType ?? TextInputType.text,
+            decoration: InputDecoration(
+              //fillColor: Colors.white,
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: AppColor.blue,
+                      // color: primaryColor.withOpacity(.9),
+                      width: 1),
+                  borderRadius: BorderRadius.circular(6)),
+              enabledBorder: OutlineInputBorder(
+                borderSide: border2?? BorderSide(
+                  color: AppColor.blue,
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(6),
+              ),
+              border: OutlineInputBorder(
+                  borderSide: border ?? BorderSide(color: AppColor.blue, width: 2),
+                  borderRadius: BorderRadius.circular(6)),
+              labelText: label,
+              labelStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: fontSize ?? 16,
+                    color: labelcolor?? AppColor.blue,
+                  ),
+              hintStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: fontSize ?? 14,
+                    color: AppColor.white,
+                  ),
+              hintText: hint ?? "",
+              contentPadding: padding ?? const EdgeInsets.symmetric(horizontal: 10),
+              suffixIcon: suffixIcon,
+              prefix: prefixIcon,
             ),
-            borderRadius: BorderRadius.circular(4),
           ),
-          border: OutlineInputBorder(
-              borderSide: border?? BorderSide(color: AppColor.blue, width: 2),
-              borderRadius: BorderRadius.circular(6)),
-          labelText: label,
-          labelStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
-                fontSize: fontSize ?? 14,
-                color: AppColor.blue,
-              ),
-          hintStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
-                fontSize: fontSize?? 14,
-                color: AppColor.blue,
-              ),
-          hintText: hint ?? "",
-          contentPadding: padding ?? const EdgeInsets.symmetric(horizontal: 10),
-          suffixIcon: suffixIcon,
-          prefix: prefixIcon,
         ),
       ),
     );

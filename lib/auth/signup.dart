@@ -1,10 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
-
 import 'dart:io';
 
 import 'package:bodae/Constants/colors.dart';
 import 'package:bodae/Pages/home_screen.dart';
 import 'package:bodae/widgets/textfields.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -16,14 +15,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  //AuthController authController = Get.put(AuthController());
-
   double? _devWidth, _devHeight;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  TextEditingController username = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   bool valuefirst = false;
   late DateTime selectedDate;
   ImagePicker picker = ImagePicker();
@@ -36,6 +34,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
         image = File(pickedFile.path);
       }
     });
+  }
+
+  Future<void> _signUp() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+      } on FirebaseAuthException catch (e) {
+        String message = '';
+        if (e.code == 'weak-password') {
+          message = 'The password provided is too weak.';
+        } else if (e.code == 'email-already-in-use') {
+          message = 'The account already exists for that email.';
+        }
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+      }
+    }
   }
 
   @override
@@ -81,13 +99,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   CustomTextInput(
                     keyboardType: TextInputType.emailAddress,
                     autofillHints: [AutofillHints.email],
-                    // controller: authController.email,
+                    controller: firstNameController,
                     label: "First Name",
                     fontSize: 16,
                     hint: "Henry",
-                    
                     validator: (val) {
-                      return val!.isEmpty ? "enter_email_error" : null;
+                      return val!.isEmpty ? "enter_first_name_error" : null;
                     },
                   ),
                   const SizedBox(
@@ -96,21 +113,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   CustomTextInput(
                     keyboardType: TextInputType.emailAddress,
                     autofillHints: [AutofillHints.email],
+                    controller: lastNameController,
                     label: "Last Name",
                     fontSize: 16,
                     hint: "Wanjohi",
                     validator: (val) {
-                      return val!.isEmpty ? "enter_email_error" : null;
+                      return val!.isEmpty ? "enter_last_name_error" : null;
                     },
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   CustomTextInput(
+                    controller: emailController,
                     label: "Enter email",
                     fontSize: 16,
                     validator: (val) {
-                      return val!.isEmpty ? "enter_password_error" : null;
+                      return val!.isEmpty ? "enter_email_error" : null;
                     },
                     hint: "wanj@gmail.com",
                   ),
@@ -118,6 +137,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 20,
                   ),
                   CustomTextInput(
+                    controller: passwordController,
                     label: "Enter password",
                     fontSize: 16,
                     validator: (val) {
@@ -129,44 +149,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 50,
                   ),
                   Center(
-                  child: CircleAvatar(
-                    backgroundColor: AppColor.white2,
-                    radius: 80,
                     child: CircleAvatar(
-                      radius: 75, // This gives a small padding around the image
-                      backgroundImage: image != null ? FileImage(image!) : null,
-                      child: image == null
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                  onPressed: () => _getImage(ImageSource.camera),
-                                  icon: Icon(Icons.camera_alt_outlined),
-                                ),
-                                SizedBox(width: 10),
-                                IconButton(
-                                  onPressed: () => _getImage(ImageSource.gallery),
-                                  icon: Icon(Icons.photo_library_outlined),
-                                ),
-                              ],
-                            )
-                          : null,
+                      backgroundColor: AppColor.white2,
+                      radius: 80,
+                      child: CircleAvatar(
+                        radius: 75, // This gives a small padding around the image
+                        backgroundImage: image != null ? FileImage(image!) : null,
+                        child: image == null
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    onPressed: () => _getImage(ImageSource.camera),
+                                    icon: Icon(Icons.camera_alt_outlined),
+                                  ),
+                                  SizedBox(width: 10),
+                                  IconButton(
+                                    onPressed: () => _getImage(ImageSource.gallery),
+                                    icon: Icon(Icons.photo_library_outlined),
+                                  ),
+                                ],
+                              )
+                            : null,
+                      ),
                     ),
                   ),
-                ),
                   SizedBox(
                     height: _devHeight! * 0.1,
                   ),
                   Center(
                     child: GestureDetector(
-                      onTap: () {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return HomeScreen();
-                          }));
-                        }
-                      },
+                      onTap: _signUp,
                       child: Container(
                         child: Center(
                           child: Text(
