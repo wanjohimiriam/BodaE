@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"bodae-setup","appId":"1:892186184051:android:5cbe10a7758e0ea1469d06","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"bodae-setup","configurations":{"android":"1:892186184051:android:5cbe10a7758e0ea1469d06","ios":"1:892186184051:ios:335e13370028ce2f469d06"}}}}}}

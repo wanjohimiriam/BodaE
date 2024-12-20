@@ -1,0 +1,150 @@
+{
+  "project_info": {
+    "project_number": "892186184051",
+    "project_id": "bodae-setup",
+    "storage_bucket": "bodae-setup.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892186184051:android:b2e410cbe9582d32469d06",
+        "android_client_info": {
+          "package_name": "com.egoncastle.drivers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892186184051-petq1k425l3u20clm2lj9tsf03s5td82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.egoncastle.drivers",
+            "certificate_hash": "37c173b4788abf56188cb053e2efb549efecf33f"
+          }
+        },
+        {
+          "client_id": "892186184051-sfdsg7kjn80pv4okvcnrjlq0och85ubk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.egoncastle.drivers",
+            "certificate_hash": "0b37081272b3e36b7fc6886ff2c9de59f96427ee"
+          }
+        },
+        {
+          "client_id": "892186184051-cq9mgeogdn1q8df7seml662srj3sc9qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGZIGh2JYzD-MG7DrnwEBWhTQdxkaUrPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892186184051-cq9mgeogdn1q8df7seml662srj3sc9qh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "892186184051-3mp08d4pjjlad7845vt8rkeqo1joughc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.egoncastle.drivers"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892186184051:android:5cbe10a7758e0ea1469d06",
+        "android_client_info": {
+          "package_name": "com.example.drivers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892186184051-cq9mgeogdn1q8df7seml662srj3sc9qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGZIGh2JYzD-MG7DrnwEBWhTQdxkaUrPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892186184051-cq9mgeogdn1q8df7seml662srj3sc9qh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "892186184051-3mp08d4pjjlad7845vt8rkeqo1joughc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.egoncastle.drivers"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892186184051:android:ef17badd42e5cbc0469d06",
+        "android_client_info": {
+          "package_name": "com.example.user_boder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892186184051-0psm460s60vstrs7a48jgfsst9tjup2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user_boder",
+            "certificate_hash": "37c173b4788abf56188cb053e2efb549efecf33f"
+          }
+        },
+        {
+          "client_id": "892186184051-lcpbk008o6gf4g99os5jd1hsrcj20fb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user_boder",
+            "certificate_hash": "0b37081272b3e36b7fc6886ff2c9de59f96427ee"
+          }
+        },
+        {
+          "client_id": "892186184051-cq9mgeogdn1q8df7seml662srj3sc9qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGZIGh2JYzD-MG7DrnwEBWhTQdxkaUrPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892186184051-cq9mgeogdn1q8df7seml662srj3sc9qh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "892186184051-3mp08d4pjjlad7845vt8rkeqo1joughc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.egoncastle.drivers"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
